@@ -1,0 +1,208 @@
+  - alias: 'Turn on pixel frame when I arrive'
+    trigger:
+      platform: state
+      entity_id: group.all_devices
+      from: 'not_home'
+      to: 'home'
+    action:   
+      service: homeassistant.turn_on
+      data:
+        entity_id: 
+          - switch.pixelframe
+  
+  - alias: 'Turn off pixel frame when I leave'
+    trigger:
+      platform: state
+      entity_id: group.all_devices
+      from: 'home'
+      to: 'not_home'
+    action:
+      service: homeassistant.turn_off
+      data:
+        entity_id:
+          - switch.pixelframe
+
+  - alias: 'Turn off pixel frame at midnight'
+    trigger:
+      platform: time
+      at: '23:30:00'
+    action:
+      service: homeassistant.turn_off
+      data:
+        entity_id:
+          - switch.pixelframe
+
+  - alias: 'Turn on pixel frame in the morning'
+    trigger:
+      platform: time
+      at: '08:00:00'
+    condition:
+      - condition: state
+        entity_id: group.all_devices
+        state: 'home'
+    action:
+      service: homeassistant.turn_on
+      data:
+        entity_id: 
+          - switch.pixelframe
+
+  - alias: 'Turn on lights when I arrive after sunset'
+    trigger:
+      platform: state
+      entity_id: group.all_devices
+      from: 'not_home'
+      to: 'home'
+    condition:
+      condition: sun
+      after: sunset
+      after_offset: "-00:30:00"
+    action:   
+      service: homeassistant.turn_on
+      data:
+        entity_id: 
+          - scene.sunset
+          - script.porchtimer
+
+  - alias: 'Turn off lights if I leave after sunset'
+    trigger:
+      platform: state
+      entity_id: group.all_devices
+      from: 'home'
+      to: 'not_home'
+    condition:
+      condition: sun
+      after: sunset
+      after_offset: "-00:30:00"
+    action:   
+      service: homeassistant.turn_off
+      data:
+        entity_id: 
+          - light.dining_room
+          - light.sunroom
+          - light.living_room
+          - light.living_room_table_lamp
+          - light.entry_hall
+          - light.kitchen
+          - light.bedroom_1
+          - light.bedroom_2
+          - light.bedroom_3
+          - light.front_lights
+          - light.rear_lights
+          - light.sconces
+
+  - alias: Turn on lights at sunset if home
+    trigger:
+      - platform: sun
+        event: sunset
+        offset: "-00:30:00"
+      - platform: state
+        entity_id: group.all_devices
+        from: 'not_home'
+        to: 'home'
+    condition:
+      - condition: state
+        entity_id: group.all_devices
+        state: 'home'
+      - condition: sun
+        after: sunset
+        after_offset: "-00:30:00"
+    action:
+      service: homeassistant.turn_on
+      data:
+        entity_id: 
+          - scene.sunset
+          - script.porchtimer
+
+  - alias: Not Home - Turn on bar scene at sunset
+    trigger:
+      - platform: sun
+        event: sunset
+        offset: "-00:40:00"
+    condition:
+      - condition: state
+        entity_id: group.all_devices
+        state: 'not_home'
+    action:
+      service: homeassistant.turn_on
+      data:
+        entity_id:
+          - scene.focus_on_the_bar
+
+  - alias: Not Home - Turn on bedroom at 11
+    trigger:
+      platform: time
+      at: '22:49:00'
+    condition:
+      - condition: state
+        entity_id: group.all_devices
+        state: 'not_home'
+    action:
+      service: homeassistant.turn_on
+      data:
+        entity_id:
+          - light.bedroom_1
+          - light.bedroom_2
+          - light.bedroom_3
+
+  - alias: Not Home - Turn off bedroom at midnight
+    trigger:
+      platform: time
+      at: '23:42:00'
+    condition:
+      - condition: state
+        entity_id: group.all_devices
+        state: 'not_home'
+    action:
+      service: homeassistant.turn_off
+      data:
+        entity_id:
+          - light.bedroom_1
+          - light.bedroom_2
+          - light.bedroom_3
+
+  - alias: Not Home - Turn first floor lights at 11:24
+    trigger:
+      platform: time
+      at: '23:24:00'
+    condition:
+      - condition: state
+        entity_id: group.all_devices
+        state: 'not_home'
+    action:
+      service: homeassistant.turn_off
+      data:
+        entity_id:
+          - light.dining_room
+          - light.sunroom
+          - light.living_room
+          - light.living_room_table_lamp
+          - light.entry_hall
+          - light.kitchen
+          - light.bedroom_1
+          - light.bedroom_2
+          - light.bedroom_3
+          - light.front_lights
+          - light.rear_lights
+          - light.sconces
+
+  - alias: Brighten Sconces when movie paused
+    trigger:
+      platform: state
+      entity_id: media_player.mpchc
+      from: 'playing'
+      to: 'paused'
+    action:
+      service: light.turn_on
+      data:
+        entity_id: light.sconces
+        brightness: 50
+
+  - alias: Turn off Sconces when movie playing
+    trigger:
+      platform: state
+      entity_id: media_player.mpchc
+      to: 'playing'
+    action:
+      service: light.turn_off
+      entity_id: light.sconces
+            

@@ -1,0 +1,236 @@
+
+  - name: First Floor - Full Bright 
+    entities:
+      light.kitchen:
+          state: on
+          brightness: 100
+      light.bar_1:
+          state: on
+          brightness: 100
+      light.bar_2:
+          state: on
+          brightness: 100
+      light.dining_room:
+          state: on
+          brightness: 100
+      light.sunroom:
+          state: on
+          brightness: 100
+      light.living_room_table_lamp:
+          state: on
+          brightness: 100
+      light.living_room:
+          state: on
+          brightness: 100
+      light.entry_hall:
+          state: on
+          brightness: 100
+
+  - name: Focus on the Sunroom
+    entities:
+      light.kitchen:
+          state: off
+      light.bar_1:
+          state: on
+          brightness: 10
+      light.bar_2:
+          state: on
+          brightness: 10
+      light.dining_room:
+          state: on
+          brightness: 20
+      light.sunroom:
+          state: on
+          brightness: 100
+      light.living_room_table_lamp:
+          state: on
+          brightness: 40
+      light.living_room:
+          state: on
+          brightness: 40
+      light.entry_hall:
+          state: on
+          brightness: 30
+
+  - name: Focus on the Living Room
+    entities:
+      light.kitchen:
+          state: off
+      light.bar_1:
+          state: on
+          brightness: 20
+      light.bar_2:
+          state: on
+          brightness: 20
+      light.dining_room:
+          state: on
+          brightness: 20
+      light.sunroom:
+          state: on
+          brightness: 20
+      light.living_room_table_lamp:
+          state: on
+          brightness: 100
+      light.living_room:
+          state: on
+          brightness: 100
+      light.entry_hall:
+          state: on
+          brightness: 30
+
+  - name: Mood Music
+    entities:
+      light.kitchen:
+          state: off
+      light.bar_1:
+          state: off
+      light.bar_2:
+          state: off
+      light.dining_room:
+          state: on
+          brightness: 20
+      light.sunroom:
+          state: on
+          brightness: 20
+      light.living_room_table_lamp:
+          state: on
+          brightness: 80
+      light.living_room:
+          state: off
+      light.entry_hall:
+          state: off
+      switch.pixelframe:
+          state: off
+
+  - name: Focus on the Dining Room
+    entities:
+      light.kitchen:
+          state: off
+          brightness: 30
+      light.bar_1:
+          state: off
+          brightness: 30
+      light.bar_2:
+          state: off
+          brightness: 30
+      light.dining_room:
+          state: on
+          brightness: 40
+      light.sunroom:
+          state: off
+      light.living_room_table_lamp:
+          state: on
+          brightness: 20
+      light.living_room:
+          state: on
+          brightness: 20
+      light.entry_hall:
+          state: on
+          brightness: 20
+
+  - name: Focus on the Bar
+    entities:
+      light.kitchen:
+          state: on
+          brightness: 40
+      light.bar_1:
+          state: on
+          brightness: 100
+      light.bar_2:
+          state: on
+          brightness: 100
+      light.dining_room:
+          state: on
+          brightness: 40
+      light.sunroom:
+          state: on
+          brightness: 10
+      light.living_room_table_lamp:
+          state: on
+          brightness: 20
+      light.living_room:
+          state: on
+          brightness: 20
+      light.entry_hall:
+          state: on
+          brightness: 40
+
+  - name: Focus on the Kitchen
+    entities:
+      light.kitchen:
+          state: on
+          brightness: 80
+      light.bar_1:
+          state: on
+          brightness: 70
+      light.bar_2:
+          state: on
+          brightness: 70
+      light.dining_room:
+          state: on
+          brightness: 40
+      light.sunroom:
+          state: off
+      light.living_room_table_lamp:
+          state: on
+          brightness: 20
+      light.living_room:
+          state: on
+          brightness: 20
+      light.entry_hall:
+          state: on
+          brightness: 40
+
+  - name: First Floor - Dims
+    entities:
+      light.kitchen:
+          state: on
+          brightness: 40
+      light.bar_1:
+          state: on
+          brightness: 40
+      light.bar_2:
+          state: on
+          brightness: 40
+      light.dining_room:
+          state: on
+          brightness: 40
+      light.sunroom:
+          state: on
+          brightness: 40
+      light.living_room_table_lamp:
+          state: on
+          brightness: 40
+      light.living_room:
+          state: on
+          brightness: 40
+      light.entry_hall:
+          state: on
+          brightness: 40
+  
+  - name: Sunset
+    entities:
+      light.kitchen:
+          state: on
+          brightness: 50
+      light.bar_1:
+          state: on
+          brightness: 50
+      light.bar_2:
+          state: on
+          brightness: 50
+      light.dining_room:
+          state: on
+          brightness: 50
+      light.sunroom:
+          state: on
+          brightness: 50
+      light.living_room_table_lamp:
+          state: on
+          brightness: 100
+      light.living_room:
+          state: on
+          brightness: 100
+      light.entry_hall:
+          state: on
+          brightness: 50

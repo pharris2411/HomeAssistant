@@ -1,0 +1,19 @@
+sensor.yr_symbol:
+  friendly_name: Weather
+  hidden: true
+media_player.unnamed_device:
+  friendly_name: Bedroom Vizio TV - Plex Client
+sensor.peters_7_battery_level:
+  hidden: true
+sensor.peters_7_battery_state:
+  hidden: true
+sun.sun:
+  hidden: true
+sensor.transmission_status:
+  hidden: true
+sensor.transmission_up_speed:
+  hidden: true
+sensor.transmission_down_speed:
+  hidden: true
+script.porchtimer:
+  hidden: true

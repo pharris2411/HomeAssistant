@@ -1,0 +1,15 @@
+  porchtimer:
+    alias: Arrival Porch Timer
+    sequence:
+      - alias: Porch light on
+        service: light.turn_on
+        data:
+          entity_id: light.porch
+          brightness: 100
+      - delay:
+          # supports seconds, milliseconds, minutes, hours
+          minutes: 10
+      - alias: Porch light off
+        service: light.turn_off
+        data:
+          entity_id: light.porch

@@ -1,0 +1,48 @@
+theater_lights:
+  view: Yes
+  name: Theater
+  entities:
+    - light.front_lights
+    - light.rear_lights
+    - light.sconces
+    - automation.turn_off_sconces_when_movie_playing
+    - automation.brighten_sconces_when_movie_paused
+
+first_floor_lights:
+  view: Yes
+  name: First Floor
+  entities:
+    - light.bar_1
+    - light.bar_2
+    - light.dining_room
+    - light.sunroom
+    - light.living_room
+    - light.living_room_table_lamp
+    - light.entry_hall
+    - light.kitchen
+    - scene.first_floor__dims
+    - scene.first_floor__full_bright
+    - scene.focus_on_the_bar
+    - scene.focus_on_the_dining_room
+    - scene.focus_on_the_kitchen
+    - scene.focus_on_the_living_room
+    - scene.focus_on_the_sunroom
+    - automation.turn__when_i_arrive_after_sunset
+
+bedroom_lights:
+  view: Yes
+  name: Bedroom
+  entities:
+    - light.bedroom_1
+    - light.bedroom_2
+    - light.bedroom_3
+
+# climate:
+#   name: Climate
+#   view: Yes
+#   entities:
+#     - sensor.basement_temperature 
+#     - sensor.bedroom_temperature  
+#     - sensor.living_room_temperature  
+#     - sensor.main_floor_temperature
+#     - sensor.main_floor_humidity

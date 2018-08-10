@@ -1,0 +1,168 @@
+
+
+  - platform: mqtt
+    name: "Bedroom 3"
+    state_topic: "smartthings/Bedroom 3/switch"
+    command_topic: "smartthings/Bedroom 3/switch"
+    brightness_state_topic: "smartthings/Bedroom 3/level"
+    brightness_command_topic: "smartthings/Bedroom 3/level"
+    payload_on: "on"
+    payload_off: "off"
+    retain: true
+
+  - platform: mqtt
+    name: "Bedroom 1"
+    state_topic: "smartthings/Bedroom 1/switch"
+    command_topic: "smartthings/Bedroom 1/switch"
+    brightness_state_topic: "smartthings/Bedroom 1/level"
+    brightness_command_topic: "smartthings/Bedroom 1/level"
+    rgb_command_topic: "smartthings/Bedroom 1/color"
+    rgb_state_topic: "smartthings/Bedroom 1/color"
+    rgb_command_template: "{{ '#%02x%02x%02x' | format(blue, green, red)}}"
+    payload_on: "on"
+    payload_off: "off"
+    retain: true
+
+  - platform: mqtt
+    name: "Bedroom 2"
+    state_topic: "smartthings/Bedroom 2/switch"
+    command_topic: "smartthings/Bedroom 2/switch"
+    brightness_state_topic: "smartthings/Bedroom 2/level"
+    brightness_command_topic: "smartthings/Bedroom 2/level"
+    rgb_command_topic: "smartthings/Bedroom 2/color"
+    rgb_state_topic: "smartthings/Bedroom 2/color"   
+    rgb_command_template: "{{ '#%02x%02x%02x' | format(blue, green, red)}}"
+    payload_on: "on"
+    payload_off: "off"
+    retain: true
+
+  - platform: mqtt
+    name: "Entry Hall"
+    state_topic: "smartthings/Entry Hall/switch"
+    command_topic: "smartthings/Entry Hall/switch"
+    brightness_state_topic: "smartthings/Entry Hall/level"
+    brightness_command_topic: "smartthings/Entry Hall/level"
+    payload_on: "on"
+    payload_off: "off"
+    retain: true
+
+  - platform: mqtt
+    name: "Front Lights"
+    state_topic: "smartthings/Front Lights/switch"
+    command_topic: "smartthings/Front Lights/switch"
+    brightness_state_topic: "smartthings/Front Lights/level"
+    brightness_command_topic: "smartthings/Front Lights/level"
+    payload_on: "on"
+    payload_off: "off"
+    retain: true
+
+  - platform: mqtt
+    name: "Living Room"
+    state_topic: "smartthings/Living Room/switch"
+    command_topic: "smartthings/Living Room/switch"
+    brightness_state_topic: "smartthings/Living Room/level"
+    brightness_command_topic: "smartthings/Living Room/level"
+    payload_on: "on"
+    payload_off: "off"
+    retain: true
+
+  - platform: mqtt
+    name: "Living Room Table Lamp"
+    state_topic: "smartthings/Living Room Table Lamp/switch"
+    command_topic: "smartthings/Living Room Table Lamp/switch"
+    brightness_state_topic: "smartthings/Living Room Table Lamp/level"
+    brightness_command_topic: "smartthings/Living Room Table Lamp/level"
+    payload_on: "on"
+    payload_off: "off"
+    retain: true
+
+  - platform: mqtt
+    name: "Living Room Front"
+    state_topic: "smartthings/Living Room Front/switch"
+    command_topic: "smartthings/Living Room Front/switch"
+    brightness_state_topic: "smartthings/Living Room Front/level"
+    brightness_command_topic: "smartthings/Living Room Front/level"
+    payload_on: "on"
+    payload_off: "off"
+    retain: true
+
+  - platform: mqtt
+    name: "Rear Lights"
+    state_topic: "smartthings/Rear Lights/switch"
+    command_topic: "smartthings/Rear Lights/switch"
+    brightness_state_topic: "smartthings/Rear Lights/level"
+    brightness_command_topic: "smartthings/Rear Lights/level"
+    payload_on: "on"
+    payload_off: "off"
+    retain: true
+
+
+  - platform: mqtt
+    name: "Sconces"
+    state_topic: "smartthings/Sconces/switch"
+    command_topic: "smartthings/Sconces/switch"
+    brightness_state_topic: "smartthings/Sconces/level"
+    brightness_command_topic: "smartthings/Sconces/level"
+    payload_on: "on"
+    payload_off: "off"
+    retain: true
+
+  - platform: mqtt
+    name: "Bar 1"
+    state_topic: "smartthings/Bar 1/switch"
+    command_topic: "smartthings/Bar 1/switch"
+    brightness_state_topic: "smartthings/Bar 1/level"
+    brightness_command_topic: "smartthings/Bar 1/level"
+    payload_on: "on"
+    payload_off: "off"
+    retain: true
+
+  - platform: mqtt
+    name: "Bar 2"
+    state_topic: "smartthings/Bar 2/switch"
+    command_topic: "smartthings/Bar 2/switch"
+    brightness_state_topic: "smartthings/Bar 2/level"
+    brightness_command_topic: "smartthings/Bar 2/level"
+    payload_on: "on"
+    payload_off: "off"
+    retain: true
+
+  - platform: mqtt
+    name: "Dining Room"
+    state_topic: "smartthings/Dining Room/switch"
+    command_topic: "smartthings/Dining Room/switch"
+    brightness_state_topic: "smartthings/Dining Room/level"
+    brightness_command_topic: "smartthings/Dining Room/level"
+    payload_on: "on"
+    payload_off: "off"
+    retain: true
+
+  - platform: mqtt
+    name: "Sunroom"
+    state_topic: "smartthings/Sunroom/switch"
+    command_topic: "smartthings/Sunroom/switch"
+    brightness_state_topic: "smartthings/Sunroom/level"
+    brightness_command_topic: "smartthings/Sunroom/level"
+    payload_on: "on"
+    payload_off: "off"
+    retain: true
+
+  - platform: mqtt
+    name: "Porch"
+    state_topic: "smartthings/Porch/switch"
+    command_topic: "smartthings/Porch/switch"
+    brightness_state_topic: "smartthings/Porch/level"
+    brightness_command_topic: "smartthings/Porch/level"
+    payload_on: "on"
+    payload_off: "off"
+    retain: true
+
+  - platform: mqtt
+    name: "Kitchen"
+    state_topic: "smartthings/Kitchen/switch"
+    command_topic: "smartthings/Kitchen/switch"
+    brightness_state_topic: "smartthings/Kitchen/level"
+    brightness_command_topic: "smartthings/Kitchen/level"
+    payload_on: "on"
+    payload_off: "off"
+    retain: true

@@ -1,0 +1,166 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitude
+  longitude: !secret longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 111
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/New_York
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+# introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  api_password: !secret api_password
+  base_url: !secret base_url
+  ssl_certificate: !secret ssl_certificate
+  ssl_key: !secret ssl_key
+
+
+alexa:
+
+intent_script:
+  ActivateSceneIntent:
+    action:
+      service: scene.turn_on
+      data_template:
+        entity_id: scene.{{ Scene | replace(" ", "_") }}
+    speech:
+      type: plain
+      text: OK
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+# conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+# map:
+
+# Track the sun
+sun:
+
+mqtt:
+  broker: localhost
+  port: 1883
+
+# Weather prediction
+sensor:
+  - platform: yr
+
+  - platform: transmission
+    host: 192.168.1.2
+    monitored_variables:
+      - 'current_status'
+      - 'download_speed'
+      - 'upload_speed'
+      - 'active_torrents'
+  
+  - platform: mqtt
+    name: "Energy Monitor"
+    state_topic: "smartthings/HEM/power"
+    unit_of_measurement: "watts"
+
+  - platform: mqtt
+    name: "Power Consumption"
+    state_topic: "smartthings/HEM/energy"
+    unit_of_measurement: "kWh"
+
+  - platform: mqtt
+    name: "Basement Humidity"
+    state_topic: "smartthings/Basement Humidity/humidity"
+    unit_of_measurement: '%'
+    # value_template: "{{ value_json.humidity }}"
+
+  - platform: mqtt
+    name: "Basement Temperature 2"
+    state_topic: "smartthings/Basement Humidity/temperature"
+    unit_of_measurement: '°F'
+    # value_template: "{{ value_json.temperature }}"
+    
+# Text to speech
+tts:
+  - platform: google
+
+device_tracker:
+  - platform: asuswrt
+    host: 192.168.1.1
+    username: !secret router_username
+    password: !secret router_password
+    protocol: telnet
+    track_new_devices: false
+    consider_home: 0:45
+
+# media_player:
+#   - platform: mpchc
+#     host: http://192.168.1.196
+
+# ios:
+  # track: false
+
+ecobee:
+  api_key: !secret ecobee_api
+
+duckdns:
+  domain: !secret duckdns_domain 
+  access_token: !secret duckdns_token 
+
+switch:
+  - platform: mqtt
+    name: "Dehumidifier"
+    command_topic: "smartthings/Dehumidifier/switch"
+    state_topic: "smartthings/Dehumidifier/switch"
+    payload_on: "on"
+    payload_off: "off"
+    retain: true
+  - platform: command_line
+    switches:
+      pixelframe:
+        command_on: "/usr/local/bin/curl -X GET http://192.168.1.113/wake"
+        command_off: "/usr/local/bin/curl -X GET http://192.168.1.113/sleep"
+        friendly_name: Pixel Frame
+
+  # - platform: wake_on_lan
+  #   name: "PC"
+  #   mac_address: "00-E1-11-00-32-2E"
+# input_boolean:
+#     automation_override:
+#       name: Automation Override
+#       initial: off
+#       icon: mdi:sync
+
+light: !include lights.yaml
+scene: !include scenes.yaml
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+
