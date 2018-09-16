@@ -46,6 +46,30 @@
         entity_id: 
           - switch.pixelframe
 
+  # - alias: 'Turn on pixel frame with living room speakers'
+  #   trigger:
+  #     platform: state
+  #     entity_id: switch.speakers
+  #     from: 'off'
+  #     to: 'on'
+  #   action:   
+  #     service: homeassistant.turn_on
+  #     data:
+  #       entity_id: 
+  #         - switch.pixelframe
+  
+  # - alias: 'Turn off pixel frame with living room speakers'
+  #   trigger:
+  #     platform: state
+  #     entity_id: switch.speakers
+  #     from: 'on'
+  #     to: 'off'
+  #   action:
+  #     service: homeassistant.turn_off
+  #     data:
+  #       entity_id:
+  #         - switch.pixelframe
+
   - alias: 'Turn on lights when I arrive after sunset'
     trigger:
       platform: state
@@ -160,7 +184,7 @@
           - light.bedroom_2
           - light.bedroom_3
 
-  - alias: Not Home - Turn first floor lights at 11:24
+  - alias: Not Home - Turn first floor lights off at 11:24
     trigger:
       platform: time
       at: '23:24:00'
@@ -205,4 +229,20 @@
     action:
       service: light.turn_off
       entity_id: light.sconces
-            
+
+
+  - alias: Bedroom Button Pressed
+    trigger:
+      platform: mqtt
+      topic: smartthings/Bedroom Button/button
+      # Optional
+      payload: 'pushed'
+    action:
+      # service: light.toggle
+      # data:
+      #   entity_id:
+      #     - group.bedroom_lights
+      service: python_script.master_toggle
+      data:
+        master: group.bedroom_lights
+        slave: group.bedroom_lights

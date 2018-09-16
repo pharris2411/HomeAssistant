@@ -22,6 +22,8 @@ frontend:
 # Enables configuration UI
 config:
 
+python_script:
+
 http:
   # Secrets are defined in the file secrets.yaml
   api_password: !secret api_password
@@ -139,6 +141,13 @@ switch:
     name: "Dehumidifier"
     command_topic: "smartthings/Dehumidifier/switch"
     state_topic: "smartthings/Dehumidifier/switch"
+    payload_on: "on"
+    payload_off: "off"
+    retain: true
+  - platform: mqtt
+    name: "Speakers"
+    command_topic: "smartthings/Speakers/switch"
+    state_topic: "smartthings/Speakers/switch"
     payload_on: "on"
     payload_off: "off"
     retain: true
